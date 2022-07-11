@@ -37,11 +37,23 @@ function playGame(){
         if(outcome === 't')
             console.log("It's a tie!");
 
-        else if(outcome === 'w')
+        else if(outcome === 'w'){
             console.log(`You win! ${playerMove} beats ${pveMove}`);
-        
-        else
+            humanScore += 1;
+        }
+        else{
             console.log(`You lose! ${pveMove} beats ${playerMove}`);
+            machineScore +=1;
+        }
     }
+    if(humanScore>machineScore){
+        console.log(`Humanity wins this time: ${humanScore} vs ${machineScore}`);
+        return;
+    }
+    if(machineScore>humanScore){
+        console.log(`The computer wins but only ingame: ${humanScore} vs ${machineScore}`);
+        return; 
+    }
+    console.log(`It is a tie: ${humanScore} vs ${machineScore}`)
 }
 playGame()
