@@ -10,22 +10,24 @@
 <body>
     <div class="container">
         <h1>Challenge the machine in an epic game of Rock, paper, scissors</h1>
+        <h2 id="score"></h2>
         <div class="card-container">
             <img src="" alt="Move played by you" id="player-action" class="actions">
             <h1>VS</h1>
             <img src="" alt="Move played by the computer" id="computer-action"" class="actions">
         </div>
-        <h1>Pick your weapon!</h1>
+        <h1 id="results"></h1>
+        <h2>Pick your weapon!</h1>
         <div class="card-container">
-            <div class="card">
+            <div data-type="rock" class="card">
                 <img src="../images/rock.png" alt="Rock">
                 <h2>Rock</h2>
             </div>
-            <div class="card">
+            <div data-type="paper" class="card">
                 <img src="../images/paper.png" alt="Paper">
                 <h2>Paper</h2>
             </div>
-            <div class="card">
+            <div data-type="scissors" class="card">
                 <img src="../images/scissors.png" alt="Scissors">
                 <h2>Scissors</h2>
             </div>
