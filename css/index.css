@@ -67,18 +67,20 @@ body{
     flex-direction: column;
     width: 100%;
     padding-top: 10px;
+    gap: 16px;
 }
 .container h1{
     font-size: 2rem;
 }
 .card-container{
     display: flex;
-    height: 45vh;
+    height: 35vh;
     width: 100%;
     gap: 5rem;
 }
 .actions{
     display: none;
+    border-radius: 5%;
 }
 .active{
     display: initial;
@@ -91,6 +93,10 @@ h1{
 h2{
     font-size: 2rem;
     color:white;
+}
+h3{
+    font-size: 1.5rem;
+    color: white;
 }
 .card{
     flex-direction: column;
