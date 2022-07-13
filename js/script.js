@@ -2,6 +2,15 @@ const buttons = document.querySelectorAll('.card');
 buttons.forEach(button => button.addEventListener('click', playGame));
 const yourMove = document.getElementById('player-action');
 const machineMove = document.getElementById('computer-action');
+const resultTracker = document.getElementById('results');
+const scoreboard = document.getElementById('score');
+let humanScore = 0.0;
+let machineScore = 0.0;
+
+//table that determines the outcome of the game
+// human input as columns
+// comp move as rows 
+
 const possibilities = [
     ['t', 'w', 'l'],
     ['l', 't', 'w'],
@@ -30,8 +39,6 @@ function compMove(){
     }
 }
 function playGame(){
-    let humanScore = 0.0;
-    let machineScore = 0.0;
     const playerMove = this.dataset.type
     const pveMove = compMove();
     const outcome = determineOutcome(playerMove, pveMove);
@@ -41,24 +48,20 @@ function playGame(){
     machineMove.src = `../images/${pveMove}.png`;
     machineMove.classList.add('active');
 
-    if (outcome === 't')
+    if (outcome === 't'){
         console.log("It's a tie!");
+        resultTracker.textContent = `It's a tie!`;
+    }
 
     else if (outcome === 'w') {
         console.log(`You win! ${playerMove} beats ${pveMove}`);
+        resultTracker.textContent = `You win! ${playerMove} beats ${pveMove}`;
         humanScore += 1;
     }
     else {
         console.log(`You lose! ${pveMove} beats ${playerMove}`);
+        resultTracker.textContent = `You lose. ${playerMove} loses to ${pveMove}`;
         machineScore += 1;
     }
-    if(humanScore>machineScore){
-        console.log(`Humanity wins this time: ${humanScore} vs ${machineScore}`);
-        return;
-    }
-    if(machineScore>humanScore){
-        console.log(`The computer wins but only ingame: ${humanScore} vs ${machineScore}`);
-        return; 
-    }
-    console.log(`It is a tie: ${humanScore} vs ${machineScore}`)
+    scoreboard.textContent = `Humanity: ${humanScore} vs Machines: ${machineScore}`
 }
