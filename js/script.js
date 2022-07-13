@@ -36,6 +36,11 @@ function playGame(){
     const pveMove = compMove();
     const outcome = determineOutcome(playerMove, pveMove);
 
+    yourMove.src = `../images/${playerMove}.png`; //set the content of the action with the appropriate image
+    yourMove.classList.add('active'); //make the action visible
+    machineMove.src = `../images/${pveMove}.png`;
+    machineMove.classList.add('active');
+
     if (outcome === 't')
         console.log("It's a tie!");
 
