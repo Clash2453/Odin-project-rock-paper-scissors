@@ -51,16 +51,21 @@ function playGame(){
     if (outcome === 't'){
         console.log("It's a tie!");
         resultTracker.textContent = `It's a tie!`;
+        machineMove.style.backgroundColor = 'rgb(249, 166, 2)';
+        yourMove.style.backgroundColor = 'rgb(249, 166, 2)';
     }
 
     else if (outcome === 'w') {
         console.log(`You win! ${playerMove} beats ${pveMove}`);
-        resultTracker.textContent = `You win! ${playerMove} beats ${pveMove}`;
+        resultTracker.textContent = `You win! ${playerMove} beats ${pveMove}`;        machineMove.style.backgroundColor = 'rgb(181, 48, 69)';
+        yourMove.style.backgroundColor = 'rgb(0, 192, 42)';
         humanScore += 1;
     }
     else {
         console.log(`You lose! ${pveMove} beats ${playerMove}`);
         resultTracker.textContent = `You lose. ${playerMove} loses to ${pveMove}`;
+        machineMove.style.backgroundColor = 'rgb(0, 192, 42)';
+        yourMove.style.backgroundColor = 'rgb(181, 48, 69)';
         machineScore += 1;
     }
     scoreboard.textContent = `Humanity: ${humanScore} vs Machines: ${machineScore}`
